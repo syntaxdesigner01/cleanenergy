@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 z-50 shrink-0">
-           <Image src="/logo.png" alt="Logo" width={200} height={200} />
+           <Image src="/logo.png" alt="Logo" width={150} height={150} quality={100} priority />
         </Link>
 
         {/* Desktop Nav - Center */}

@@ -20,6 +20,10 @@
   --radius-lg: 0.5rem;
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
