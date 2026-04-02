@@ -41,7 +41,7 @@ export const Portfolio = () => {
 
   return (
     <section className="py-32 bg-gradient-to-b from-[rgb(0,133,202)]/40 via-[#050505] to-[#050505] text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div className="max-w-2xl">
             <motion.div 
@@ -112,7 +112,7 @@ export const Portfolio = () => {
                   className="w-full py-8 flex items-center justify-between group text-left"
                 >
                 <div className="flex items-center gap-8 md:gap-16 flex-1">
-                  <span className="text-4xl font-light text-white/20 font-serif w-12">{item.id}</span>
+                  <span className="text-2xl font-light text-white/20 font-serif w-12">{item.id}</span>
                   <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1">
                     <h3 className="text-xl md:text-2xl font-medium group-hover:translate-x-2 transition-transform duration-300">
                       {item.name}

@@ -326,7 +326,7 @@ export const AboutFund = () => {
     >
       {/* DARK SECTION: Mandate & Bento Grid */}
       <div className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -463,7 +463,7 @@ export const AboutFund = () => {
 
       {/* LIGHT SECTION: Approach & Rationale */}
       <div className="bg-[#F8FAFC] py-20 lg:py-28 text-slate-900 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl lg:text-[38px] font-medium leading-[1.15] tracking-tight mb-12">
             <span className="text-slate-900">Our Approach & </span>
             <span className="text-slate-400">Rationale</span>

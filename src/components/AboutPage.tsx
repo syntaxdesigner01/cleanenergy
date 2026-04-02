@@ -68,7 +68,7 @@ const HeroSection = () => {
 
       <motion.div 
         style={{ opacity: heroOpacity, y: heroY }}
-        className="relative z-20 w-full max-w-7xl mx-auto px-6 flex flex-col justify-end h-full"
+        className="relative z-20 w-full max-w-6xl mx-auto px-6 flex flex-col justify-end h-full"
       >
         <div className="mb-8">
           <Breadcrumbs />
@@ -87,7 +87,7 @@ const HeroSection = () => {
             </span>
           </motion.div>
           
-          <motion.h1 variants={fadeUp} className="text-[42px] md:text-5xl lg:text-6xl font-medium leading-[1.15] tracking-tight mb-8">
+          <motion.h1 variants={fadeUp} className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight mb-8">
             <span className="text-white">Pioneering Local Currency </span>
             <span className="text-white/50">Clean Energy Investments in Nigeria.</span>
           </motion.h1>
@@ -121,7 +121,7 @@ const HeroSection = () => {
 const MacroProblemSection = () => {
   return (
     <section className="py-24 lg:py-32 bg-white text-[#0A1224] relative z-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left Column */}
           <motion.div 
@@ -137,7 +137,7 @@ const MacroProblemSection = () => {
                 The Challenge
               </span>
             </div>
-            <h2 className="text-[42px] md:text-5xl lg:text-6xl font-medium leading-[1.15] tracking-tight">
+            <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight">
               <span className="text-slate-900">The ₦4 Trillion </span>
               <span className="text-slate-400">Market Gap.</span>
             </h2>
@@ -163,15 +163,15 @@ const MacroProblemSection = () => {
 
             <motion.div variants={fadeUp} className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-12 border-t border-gray-200">
               <div>
-                <div className="text-4xl font-light text-[#0A1224] mb-2">+85M</div>
+                <div className="text-2xl font-light text-[#0A1224] mb-2">+85M</div>
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">Unserved Population</div>
               </div>
               <div>
-                <div className="text-4xl font-light text-[#0A1224] mb-2">100%</div>
+                <div className="text-2xl font-light text-[#0A1224] mb-2">100%</div>
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">FX Insulated</div>
               </div>
               <div>
-                <div className="text-4xl font-light text-[#0A1224] mb-2">₦4T</div>
+                <div className="text-2xl font-light text-[#0A1224] mb-2">₦4T</div>
                 <div className="text-sm font-medium text-gray-500 uppercase tracking-wider">Market Opportunity</div>
               </div>
             </motion.div>
@@ -185,7 +185,7 @@ const MacroProblemSection = () => {
 const FundStructureSection = () => {
   return (
     <section className="py-24 bg-[#F8F9FA] relative z-20 border-y border-gray-200 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -199,7 +199,7 @@ const FundStructureSection = () => {
               Architecture
             </span>
           </div>
-          <h2 className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight">
+          <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight">
             <span className="text-slate-900">Fund </span>
             <span className="text-slate-400">Structure</span>
           </h2>
@@ -356,7 +356,7 @@ const PrioritySectorsSection = () => {
 
   return (
     <section className="py-24 bg-[#0A1224] relative z-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -370,7 +370,7 @@ const PrioritySectorsSection = () => {
               Investment Focus
             </span>
           </div>
-          <h2 className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight">
+          <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight">
             <span className="text-white">Priority </span>
             <span className="text-white/50">Sectors</span>
           </h2>
@@ -448,21 +448,21 @@ const MilestonesSection = () => {
 
   return (
     <section className="py-24 lg:py-32 bg-gradient-to-b from-[rgb(0,133,202)]/40 via-[#050505] to-[#050505] text-white relative z-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16">
+      <div className="max-w-6xl mx-auto px-6 mb-16">
         <div className="flex items-center gap-3 mb-8">
           <div className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
           <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-text-tertiary)]">
             Track Record
           </span>
         </div>
-        <h2 className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight mb-4">
+        <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight mb-4">
           <span className="text-white">The Journey </span>
           <span className="text-white/50">So Far</span>
         </h2>
         <p className="text-white/80 text-lg max-w-xl">We have established a track-record of innovation, execution, and growth.</p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative" ref={containerRef}>
+      <div className="max-w-6xl mx-auto px-6 relative" ref={containerRef}>
         {/* Animated Vertical Line */}
         <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2">
           <motion.div 
@@ -534,7 +534,7 @@ const TeamSection = () => {
 
   return (
     <section className="py-24 lg:py-32 bg-white text-[#0A1224] relative z-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <motion.div 
             initial="hidden"
@@ -549,7 +549,7 @@ const TeamSection = () => {
                 Leadership
               </span>
             </div>
-            <h2 className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight mb-6">
+            <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight mb-6">
               <span className="text-slate-900">Our </span>
               <span className="text-slate-400">Team</span>
             </h2>
@@ -596,7 +596,7 @@ const TeamSection = () => {
 const GovernanceImpactSection = () => {
   return (
     <section className="py-24 bg-[#F8F9FA] relative z-20 border-t border-gray-200">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         
         {/* Governance Matrix */}
         <div className="mb-32">
@@ -610,7 +610,7 @@ const GovernanceImpactSection = () => {
                 Institutional Framework
               </span>
             </div>
-            <h2 className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight">
+            <h2 className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight">
               <span className="text-slate-900">Governance & </span>
               <span className="text-slate-400">Impact</span>
             </h2>
@@ -648,7 +648,7 @@ const GovernanceImpactSection = () => {
         {/* Impact & SDGs */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-            <motion.h2 variants={fadeUp} className="text-[42px] md:text-5xl font-medium leading-[1.15] tracking-tight mb-6">
+            <motion.h2 variants={fadeUp} className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight mb-6">
               <span className="text-slate-900">Beyond Financial Returns: </span>
               <span className="text-slate-400">Measurable ESG Impact.</span>
             </motion.h2>
@@ -699,7 +699,7 @@ const ConversionCTASection = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6"
+          className="text-2xl sm:text-xl lg:text-2xl font-medium text-white mb-6"
         >
           Ready to participate in Nigeria's energy transition?
         </motion.h2>

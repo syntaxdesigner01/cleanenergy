@@ -148,7 +148,7 @@ export const CaseStudy = ({ id }: { id: string }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent" />
         </div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
           <Breadcrumbs />
           <motion.div 
             initial="hidden"
@@ -167,7 +167,7 @@ export const CaseStudy = ({ id }: { id: string }) => {
               >
                 {project.sector}
               </span>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight mb-5 text-white max-w-4xl">
+              <h1 className="text-xl sm:text-2xl md:text-xl lg:text-2xl font-light leading-tight mb-5 text-white max-w-4xl">
                 {project.name}
               </h1>
               <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
@@ -221,7 +221,7 @@ export const CaseStudy = ({ id }: { id: string }) => {
       </section>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 relative">
           
           {/* Left Column: Sticky Sidebar (~25%) */}
@@ -491,7 +491,7 @@ export const CaseStudy = ({ id }: { id: string }) => {
                           </div>
                         </div>
                         <div className="mt-auto">
-                          <div className="text-3xl md:text-4xl font-light mb-3 text-white tracking-tight group-hover:text-white transition-colors duration-500">{metric.value}</div>
+                          <div className="text-xl md:text-2xl font-light mb-3 text-white tracking-tight group-hover:text-white transition-colors duration-500">{metric.value}</div>
                           <div className="text-sm font-medium text-white/90 mb-2">{metric.label}</div>
                           <div className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors duration-500">{metric.description}</div>
                         </div>

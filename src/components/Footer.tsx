@@ -44,7 +44,7 @@ export const Footer = () => {
   return (
     <footer className="bg-[var(--color-background)] pt-0 pb-12 relative z-20 border-t border-[var(--color-border)]">
       
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         
         {/* Connected Boxes CTA Section */}
         <div className="mb-16 pt-10">
