@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, Building2, Globe, ArrowUpRight, Linkedin, Youtube, Instagram, Lightbulb, X } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const ctaData = [
   {
@@ -134,13 +136,9 @@ export const Footer = () => {
             {/* Brand Column */}
             <div className="lg:col-span-3">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center">
-                  <Lightbulb className="w-5 h-5 text-white" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-white tracking-widest text-lg uppercase leading-tight">Clean Energy</span>
-                  <span className="text-sm text-white tracking-wide">Local Currency Fund</span>
-                </div>
+                 <Link href="/" className="flex items-center gap-2.5 z-50 shrink-0">
+           <Image src="/logo.png" alt="Logo" width={150} height={150} quality={100} priority />
+        </Link>
               </div>
               <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
                 Financing Nigeria's energy transition through local currency climate infrastructure investment.
