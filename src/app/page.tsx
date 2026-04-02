@@ -79,7 +79,7 @@ const Hero = () => {
 
       <motion.div
         style={{ opacity: heroOpacity, y: heroY }}
-        className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row justify-between items-end gap-8 mb-10"
+        className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row justify-between items-end gap-8 mb-10"
       >
         <motion.div
           initial="hidden"
@@ -87,7 +87,7 @@ const Hero = () => {
           variants={staggerContainer}
           className="max-w-3xl"
         >
-          <motion.h1 variants={fadeUp} className="text-2xl sm:text-xl lg:text-2xl font-medium leading-[1.1] tracking-tight text-white mb-4">
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.1] tracking-tight text-white mb-4">
             Powering a <br className="hidden md:block" />
             Resilient Future
           </motion.h1>
@@ -161,7 +161,7 @@ const Hero = () => {
 
       <motion.div
         style={{ opacity: heroOpacity }}
-        className="relative z-20 w-full max-w-6xl mx-auto px-4 sm:px-6 border-t border-white/20 pt-5 flex justify-between items-center"
+        className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 border-t border-white/20 pt-5 flex justify-between items-center"
       >
         <div className="text-[10px] md:text-xs font-medium tracking-widest uppercase text-white/60">
           Nigeria's First Certified Green Fund
@@ -184,7 +184,7 @@ const ImpactStats = () => {
 
   return (
     <section className="py-10 lg:py-16 bg-[var(--color-surface)] relative z-20 border-y border-[var(--color-border)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -213,7 +213,7 @@ const ImpactStats = () => {
 const About = () => {
   return (
     <section className="py-10 lg:py-16 bg-[#F4F4F6] text-[#1A1A1A] relative z-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -226,7 +226,7 @@ const About = () => {
             </span>
           </motion.div>
 
-          <motion.h2 variants={fadeUp} className="text-lg md:text-xl lg:text-2xl font-light leading-tight mb-12 max-w-4xl">
+          <motion.h2 variants={fadeUp} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight mb-12 max-w-4xl">
             A specialized alternative asset vehicle providing long-term, Clean Energy local currency financing to sustainable infrastructure projects across Nigeria.
           </motion.h2>
 
@@ -291,7 +291,7 @@ export default function Home() {
       <ImpactStats />
       <About />
       <AboutFund />
-      <Portfolio />
+      <Portfolio limit={4} />
       <DevelopmentImpact />
       <Blog />
       <EligibilityCriteria />

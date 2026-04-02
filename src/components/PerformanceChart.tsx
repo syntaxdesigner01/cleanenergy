@@ -24,7 +24,7 @@ const data = [
 export const PerformanceChart = () => {
   return (
     <section className="py-24 bg-white text-[#1A1A1A] relative z-20 border-t border-[#1A1A1A]/10">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial="hidden"
           whileInView="visible"

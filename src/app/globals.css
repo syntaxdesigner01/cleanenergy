@@ -20,8 +20,14 @@
   --radius-lg: 0.5rem;
 }
 
-html {
+/* html {
   font-size: 15px;
+} */
+
+html, body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 body {

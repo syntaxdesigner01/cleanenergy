@@ -32,10 +32,17 @@ const Navbar = () => {
           : (scrolled ? "bg-white border-gray-200 py-3 shadow-sm" : "bg-transparent border-transparent py-4")
       )}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 z-50 shrink-0">
-           <Image src="/logo.png" alt="Logo" width={150} height={150} quality={100} priority />
+          <Image 
+            src={useDarkText ? "/logo.png" : "/logo-white.png"} 
+            alt="Logo" 
+            width={150} 
+            height={150} 
+            quality={100} 
+            priority 
+          />
         </Link>
 
         {/* Desktop Nav - Center */}
@@ -56,7 +63,7 @@ const Navbar = () => {
                 : (scrolled ? "top-[57px]" : "top-[73px]")
             )}>
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+                <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
                   <div>
                     <h4 className="text-xs font-bold tracking-widest uppercase text-gray-400 mb-5">The Fund</h4>
                     <div className="flex flex-col gap-3">

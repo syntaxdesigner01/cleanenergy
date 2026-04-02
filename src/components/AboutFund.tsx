@@ -326,7 +326,7 @@ export const AboutFund = () => {
     >
       {/* DARK SECTION: Mandate & Bento Grid */}
       <div className="py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -449,7 +449,7 @@ export const AboutFund = () => {
                       'NSIA', 'InfraCredit', 'Shelter Afrique', 'All On', 'Climate Bonds', 'FMDQ', 'USAID', 'UK NIAF',
                       'NSIA', 'InfraCredit', 'Shelter Afrique', 'All On', 'Climate Bonds', 'FMDQ', 'USAID', 'UK NIAF'
                     ].map((partner, i) => (
-                      <span key={i} className="text-lg md:text-2xl font-serif italic tracking-tight text-[var(--color-text-secondary)]/30 hover:text-[var(--color-text-secondary)] transition-colors cursor-default">
+                      <span key={i} className="text-3xl md:text-4xl font-serif italic tracking-tight text-[var(--color-text-secondary)]/30 hover:text-[var(--color-text-secondary)] transition-colors cursor-default">
                         {partner}
                       </span>
                     ))}
@@ -463,7 +463,7 @@ export const AboutFund = () => {
 
       {/* LIGHT SECTION: Approach & Rationale */}
       <div className="bg-[#F8FAFC] py-20 lg:py-28 text-slate-900 border-t border-slate-200">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl lg:text-[38px] font-medium leading-[1.15] tracking-tight mb-12">
             <span className="text-slate-900">Our Approach & </span>
             <span className="text-slate-400">Rationale</span>
@@ -506,7 +506,7 @@ export const AboutFund = () => {
                   {/* Row 1: Big Title (3/4 width) */}
                   <div className="lg:w-3/4">
                     <span className="text-xs font-bold text-[var(--color-accent-light)] uppercase tracking-widest mb-6 block">/ Fund Rationale</span>
-                    <h3 className="text-2xl md:text-3xl font-medium leading-[1.2] tracking-tight text-slate-900">
+                    <h3 className="text-xl md:text-2xl lg:text-[28px] font-medium leading-relaxed tracking-tight text-slate-900">
                       <TextReveal text="Commercial financing in Nigeria often does not provide long-term local currency funding for infrastructure projects due to FX risk, tenor limitations, and perceived credit risks." />
                     </h3>
                   </div>
@@ -609,7 +609,7 @@ export const AboutFund = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute top-6 right-6">
                         <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                          <span className="text-xl font-light">+</span>
+                          <span className="text-4xl font-light">+</span>
                         </div>
                       </div>
                       <div className="absolute bottom-8 left-8 right-8">

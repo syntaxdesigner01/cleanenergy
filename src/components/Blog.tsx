@@ -73,7 +73,7 @@ const BlogArticle = ({ article, index, isLast, setLastActive }: { key?: React.Ke
           </div>
           
           {/* Longer title, smaller font */}
-          <h3 className="text-lg sm:text-xl font-medium leading-snug text-slate-900 mb-4 relative inline-block w-fit">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-medium leading-snug text-slate-900 mb-4 relative inline-block w-fit">
             {article.title}
             <span className="absolute left-0 bottom-0 w-full h-[1px] bg-slate-900 origin-right scale-x-0 group-hover:scale-x-100 group-hover:origin-left transition-transform duration-500 ease-[0.16,1,0.3,1]" />
           </h3>
@@ -98,7 +98,7 @@ export const Blog = () => {
 
   return (
     <section ref={containerRef} className="py-16 lg:py-24 bg-[#F8FAFC] text-slate-900 border-t border-slate-200 relative z-20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
           {/* Left Column: Sticky Header & CTA */}

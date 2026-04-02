@@ -7,7 +7,7 @@ import { Plus, Minus, ArrowUpRight, Globe2, Zap, Users, Leaf, DollarSign } from 
 import Link from 'next/link';
 import { portfolioData, PortfolioItem } from '../data/projects';
 
-export const Portfolio = () => {
+export const Portfolio = ({ limit }: { limit?: number }) => {
   const [expandedId, setExpandedId] = useState<string | null>(portfolioData[0].id);
   const [expandedTextId, setExpandedTextId] = useState<string | null>(null);
   const [selectedSector, setSelectedSector] = useState<string | null>(null);
@@ -18,6 +18,8 @@ export const Portfolio = () => {
     const matchSector = selectedSector ? item.sector === selectedSector : true;
     return matchSector;
   });
+
+  const displayedData = limit ? filteredData.slice(0, limit) : filteredData;
 
   const toggleExpand = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
@@ -41,7 +43,7 @@ export const Portfolio = () => {
 
   return (
     <section className="py-32 bg-gradient-to-b from-[rgb(0,133,202)]/40 via-[#050505] to-[#050505] text-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div className="max-w-2xl">
             <motion.div 
@@ -66,12 +68,14 @@ export const Portfolio = () => {
               <span className="text-[var(--color-text-secondary)]">clean energy solutions.</span>
             </motion.h2>
           </div>
-          <Link 
-            href="/portfolio"
-            className="bg-white text-black hover:bg-[var(--color-accent-green)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg"
-          >
-            View All Projects <ArrowUpRight className="w-4 h-4" />
-          </Link>
+          {!limit && (
+            <Link 
+              href="/portfolio"
+              className="bg-white text-black hover:bg-[var(--color-accent-green)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg"
+            >
+              View All Projects <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          )}
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center gap-6 mb-12">
@@ -97,7 +101,7 @@ export const Portfolio = () => {
 
         <div className="border-t border-white/10">
           <AnimatePresence mode="popLayout">
-            {filteredData.map((item) => (
+            {displayedData.map((item) => (
               <motion.div 
                 key={item.id} 
                 layout
@@ -259,6 +263,23 @@ export const Portfolio = () => {
             ))}
           </AnimatePresence>
         </div>
+
+        {limit && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 flex justify-center"
+          >
+            <Link 
+              href="/portfolio"
+              className="group bg-white text-black hover:bg-[var(--color-accent-green)] hover:text-white px-10 py-5 rounded-lg text-sm font-bold uppercase tracking-widest transition-all flex items-center gap-3 shadow-2xl hover:scale-105"
+            >
+              View Full Portfolio Archive
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );

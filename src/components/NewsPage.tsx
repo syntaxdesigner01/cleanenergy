@@ -27,7 +27,7 @@ export const NewsPage = () => {
   return (
     <div className={cn("min-h-screen flex flex-col transition-colors duration-500", isDarkMode ? "bg-[#0A1224] text-white" : "bg-white text-[#1A1A1A]")}>
       <main className="flex-grow pt-[120px]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
 
           {/* Hero Featured Article Slider */}
           <div className="relative w-full h-[280px] md:h-[400px] rounded-2xl overflow-hidden mb-12 group">

@@ -26,7 +26,7 @@ export const ArticlePage = ({ id }: { id: number }) => {
       isDarkMode ? "bg-[var(--color-background)] text-white" : "bg-[#F4F4F6] text-[#1A1A1A]"
     )}>
       {/* Hero Section */}
-      <article className="max-w-6xl mx-auto px-6">
+      <article className="max-w-7xl mx-auto px-6">
         <div className="mb-8 flex items-center justify-between">
           {/* Breadcrumbs */}
           <nav className={cn("flex items-center gap-2 text-sm font-medium", isDarkMode ? "text-white/60" : "text-[#1A1A1A]/60")}>
@@ -150,8 +150,8 @@ export const ArticlePage = ({ id }: { id: number }) => {
 
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
-        <section className={cn("max-w-6xl mx-auto px-6 mt-24 pt-16 border-t", isDarkMode ? "border-white/10" : "border-[#1A1A1A]/10")}>
-          <h3 className={cn("text-xl lg:text-2xl font-medium mb-7", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>Related Articles</h3>
+        <section className={cn("max-w-7xl mx-auto px-6 mt-24 pt-16 border-t", isDarkMode ? "border-white/10" : "border-[#1A1A1A]/10")}>
+          <h3 className={cn("text-3xl lg:text-4xl font-medium mb-7", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>Related Articles</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {relatedArticles.map((item) => (
               <Link href={`/news/${item.id}`} key={item.id} className="group flex flex-col gap-4">

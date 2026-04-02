@@ -29,7 +29,7 @@ const itemVariants = {
 export const DevelopmentImpact = () => {
   return (
     <section className="py-24 lg:py-32 bg-[var(--color-background)] relative z-10 border-t border-[var(--color-border)]">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section */}
         <motion.div 
@@ -49,7 +49,7 @@ export const DevelopmentImpact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
             {/* Left: Headline */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-[42px] font-medium leading-[1.15] tracking-tight">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.15] tracking-tight">
                 <span className="text-white">A holistic approach to</span> <br className="hidden lg:block" />
                 <span className="text-[var(--color-text-secondary)]">Clean Energy Infrastructure <br className="hidden lg:block" />
                 & Resilience.</span>
@@ -58,7 +58,7 @@ export const DevelopmentImpact = () => {
 
             {/* Right: Description & CTA */}
             <motion.div variants={itemVariants} className="flex flex-col justify-start items-start">
-              <p className="text-lg text-white/70 font-light leading-relaxed mb-8 max-w-xl">
+              <p className="text-lg lg:text-xl text-white/70 font-light leading-relaxed mb-8 max-w-xl">
                 We deliver impact by displacing fossil fuels, driving local economic growth, and building sustainable communities. Guided by a strong <span className="text-white font-medium">Gender & Impact Lens</span>, we empower women-led enterprises and ensure equitable job creation across the green economy.
               </p>
               <a href="#" className="text-sm font-medium text-white hover:text-white/80 transition-colors flex items-center gap-1">
@@ -83,7 +83,7 @@ export const DevelopmentImpact = () => {
           >
             <div>
               <div className="flex justify-between items-start mb-6">
-                <span className="text-2xl font-light text-white/20 font-serif">01</span>
+                <span className="text-4xl font-light text-white/20 font-serif">01</span>
                 <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-white/80 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-500" />
               </div>
               <h4 className="text-xl font-medium text-white mb-4">Renewable Energy</h4>
@@ -141,7 +141,7 @@ export const DevelopmentImpact = () => {
           >
             <div>
               <div className="flex justify-between items-start mb-6">
-                <span className="text-2xl font-light text-[var(--color-accent-light)]/40 font-serif">02</span>
+                <span className="text-4xl font-light text-[var(--color-accent-light)]/40 font-serif">02</span>
                 <ArrowUpRight className="w-5 h-5 text-[var(--color-accent-light)]/50 group-hover:text-[var(--color-accent-light)] group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-500" />
               </div>
               <h4 className="text-xl font-medium text-white mb-4">Energy Efficiency</h4>
@@ -184,7 +184,7 @@ export const DevelopmentImpact = () => {
           >
             <div>
               <div className="flex justify-between items-start mb-6">
-                <span className="text-2xl font-light text-[var(--color-accent-green)]/40 font-serif">03</span>
+                <span className="text-4xl font-light text-[var(--color-accent-green)]/40 font-serif">03</span>
                 <ArrowUpRight className="w-5 h-5 text-[var(--color-accent-green)]/50 group-hover:text-[var(--color-accent-green)] group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-500" />
               </div>
               <h4 className="text-xl font-medium text-white mb-4">Gender Equality & Jobs</h4>
@@ -234,7 +234,7 @@ export const DevelopmentImpact = () => {
           >
             <div>
               <div className="flex justify-between items-start mb-6">
-                <span className="text-2xl font-light text-white/20 font-serif">04</span>
+                <span className="text-4xl font-light text-white/20 font-serif">04</span>
                 <ArrowUpRight className="w-5 h-5 text-white/30 group-hover:text-white/80 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-500" />
               </div>
               <h4 className="text-xl font-medium text-white mb-4">Partnership for Growth</h4>

@@ -52,7 +52,7 @@ export default function PortfolioArchive() {
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent" />
         </div>
         
-        <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
           <Breadcrumbs />
           <motion.div 
             initial="hidden"
@@ -69,7 +69,7 @@ export default function PortfolioArchive() {
 
       {/* About Section (Light Mode) */}
       <section className="py-24 bg-[#F4F4F6] text-[#1A1A1A] relative z-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -100,7 +100,7 @@ export default function PortfolioArchive() {
 
       {/* Grid Section (Light Mode) */}
       <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"

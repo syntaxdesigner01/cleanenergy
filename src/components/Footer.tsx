@@ -46,7 +46,7 @@ export const Footer = () => {
   return (
     <footer className="bg-[var(--color-background)] pt-0 pb-12 relative z-20 border-t border-[var(--color-border)]">
       
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         
         {/* Connected Boxes CTA Section */}
         <div className="mb-16 pt-10">
@@ -137,7 +137,7 @@ export const Footer = () => {
             <div className="lg:col-span-3">
               <div className="flex items-center gap-3 mb-6">
                  <Link href="/" className="flex items-center gap-2.5 z-50 shrink-0">
-           <Image src="/logo.png" alt="Logo" width={150} height={150} quality={100} priority />
+           <Image src="/logo-white.png" alt="Logo" width={150} height={150} quality={100} priority />
         </Link>
               </div>
               <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">

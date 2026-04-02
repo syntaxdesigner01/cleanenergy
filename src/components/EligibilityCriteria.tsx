@@ -36,7 +36,7 @@ export const EligibilityCriteria = () => {
 
   return (
     <section className="py-20 bg-[#dae7fa] text-slate-900 border-t border-slate-200 relative z-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Content */}
@@ -54,12 +54,11 @@ export const EligibilityCriteria = () => {
               </span>
             </div>
             
-            <h2 className="text-xl lg:text-2xl font-medium leading-[1.15] tracking-tight mb-6">
-              <span className="text-slate-900">Is Your Project</span>{' '}
-              <span className="text-slate-500">Eligible?</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium leading-[1.15] tracking-tight mb-6">
+              Is Your Project Eligible?
             </h2>
             
-            <p className="text-base text-slate-600 font-light leading-relaxed max-w-sm mb-8">
+            <p className="text-lg text-slate-600 font-light leading-relaxed max-w-sm mb-8">
               We focus on high-impact, climate-aligned infrastructure projects within our priority sectors. Discover if your initiative aligns with our investment mandate.
             </p>
 
