@@ -1,7 +1,9 @@
+'use client'
+
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowLeft, Layers, Zap, DollarSign, Leaf, Users, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import Link from 'next/link';
 import { portfolioData } from '../data/projects';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -25,8 +27,7 @@ const itemVariants = {
 
 const sections = ['Overview', 'The Challenge', 'Our Solution', 'Impact Metrics', 'Gallery'];
 
-export const CaseStudy = () => {
-  const { id } = useParams<{ id: string }>();
+export const CaseStudy = ({ id }: { id: string }) => {
   const [activeSection, setActiveSection] = useState('overview');
   const galleryRef = useRef<HTMLDivElement>(null);
 
@@ -94,7 +95,7 @@ export const CaseStudy = () => {
   };
 
   if (!project) {
-    return <Navigate to="/" />;
+    return null;
   }
 
   // Fallback data if caseStudy details are not fully populated in projects.ts
@@ -166,7 +167,7 @@ export const CaseStudy = () => {
               >
                 {project.sector}
               </span>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 text-white max-w-4xl">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight mb-5 text-white max-w-4xl">
                 {project.name}
               </h1>
               <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
@@ -220,7 +221,7 @@ export const CaseStudy = () => {
       </section>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 relative">
           
           {/* Left Column: Sticky Sidebar (~25%) */}
@@ -317,7 +318,7 @@ export const CaseStudy = () => {
               id="overview"
               className="scroll-mt-32"
             >
-              <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-8">
+              <motion.h2 variants={fadeUp} className="text-[22px] lg:text-[30px] font-medium leading-[1.15] tracking-tight mb-8">
                 <span className="text-slate-900">Project </span>
                 <span className="text-slate-400">Overview</span>
               </motion.h2>
@@ -339,7 +340,7 @@ export const CaseStudy = () => {
               id="the-challenge"
               className="scroll-mt-32"
             >
-              <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-8">
+              <motion.h2 variants={fadeUp} className="text-[22px] lg:text-[30px] font-medium leading-[1.15] tracking-tight mb-8">
                 <span className="text-slate-900">The </span>
                 <span className="text-slate-400">Challenge</span>
               </motion.h2>
@@ -348,7 +349,7 @@ export const CaseStudy = () => {
                   if (idx === 1) {
                     return (
                       <React.Fragment key={idx}>
-                        <blockquote className="border-l-[3px] border-[var(--color-accent)] pl-8 py-2 my-12 text-2xl md:text-3xl font-light text-slate-900 italic leading-snug">
+                        <blockquote className="border-l-[3px] border-[var(--color-accent)] pl-8 py-2 my-12 text-xl md:text-2xl font-light text-slate-900 italic leading-snug">
                           "{challengeQuote}"
                         </blockquote>
                         <p className="text-slate-600 leading-relaxed mb-6">
@@ -375,7 +376,7 @@ export const CaseStudy = () => {
               id="our-solution"
               className="scroll-mt-32"
             >
-              <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-8">
+              <motion.h2 variants={fadeUp} className="text-[22px] lg:text-[30px] font-medium leading-[1.15] tracking-tight mb-8">
                 <span className="text-slate-900">Our </span>
                 <span className="text-slate-400">Solution</span>
               </motion.h2>
@@ -436,7 +437,7 @@ export const CaseStudy = () => {
               </div>
 
               <div className="relative z-10">
-                <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-12">
+                <motion.h2 variants={fadeUp} className="text-[26px] lg:text-[36px] font-medium leading-[1.15] tracking-tight mb-12">
                   <span className="text-white">Impact </span>
                   <span className="text-[var(--color-text-secondary)]">Metrics</span>
                 </motion.h2>
@@ -490,7 +491,7 @@ export const CaseStudy = () => {
                           </div>
                         </div>
                         <div className="mt-auto">
-                          <div className="text-4xl md:text-5xl font-light mb-4 text-white tracking-tight group-hover:text-white transition-colors duration-500">{metric.value}</div>
+                          <div className="text-3xl md:text-4xl font-light mb-3 text-white tracking-tight group-hover:text-white transition-colors duration-500">{metric.value}</div>
                           <div className="text-sm font-medium text-white/90 mb-2">{metric.label}</div>
                           <div className="text-sm text-white/50 leading-relaxed group-hover:text-white/70 transition-colors duration-500">{metric.description}</div>
                         </div>
@@ -511,7 +512,7 @@ export const CaseStudy = () => {
               className="scroll-mt-32"
             >
               <div className="flex items-center justify-between mb-8">
-                <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight">
+                <motion.h2 variants={fadeUp} className="text-[26px] lg:text-[36px] font-medium leading-[1.15] tracking-tight">
                   <span className="text-slate-900">Project </span>
                   <span className="text-slate-400">Gallery</span>
                 </motion.h2>
@@ -559,14 +560,14 @@ export const CaseStudy = () => {
               variants={staggerContainer}
               className="mt-12 mb-12"
             >
-              <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-8">
+              <motion.h2 variants={fadeUp} className="text-[22px] lg:text-[30px] font-medium leading-[1.15] tracking-tight mb-8">
                 <span className="text-slate-900">Other </span>
                 <span className="text-slate-400">Projects</span>
               </motion.h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {otherProjects.map((otherProject, idx) => (
-                  <Link to={`/portfolio/${otherProject.id}`} key={idx} onClick={() => window.scrollTo(0,0)}>
+                  <Link href={`/portfolio/${otherProject.id}`} key={idx} onClick={() => window.scrollTo(0,0)}>
                     <motion.div 
                       variants={fadeUp}
                       whileHover={{ y: -5 }}
@@ -611,12 +612,12 @@ export const CaseStudy = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/20 to-transparent" />
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-light text-white mb-6">Ready to scale your impact?</h2>
+                <h2 className="text-xl md:text-3xl font-light text-white mb-5">Ready to scale your impact?</h2>
                 <p className="text-[var(--color-text-secondary)] mb-10 max-w-xl mx-auto text-lg">
                   Discover how our local currency financing can accelerate your transition to clean energy.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link to="/portfolio" className="bg-[var(--color-accent-green)] text-white hover:bg-[var(--color-accent)] px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
+                  <Link href="/portfolio" className="bg-[var(--color-accent-green)] text-white hover:bg-[var(--color-accent)] px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 duration-300">
                     View All Case Studies <ArrowUpRight className="w-4 h-4" />
                   </Link>
                   <a href="mailto:contact@example.com" className="bg-white/10 text-white hover:bg-white/20 px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 backdrop-blur-sm">

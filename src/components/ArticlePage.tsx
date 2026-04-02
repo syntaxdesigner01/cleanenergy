@@ -1,12 +1,13 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
 import { Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, ChevronRight, Sun, Moon } from 'lucide-react';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import Link from 'next/link';
 import { articles } from '../data/articles';
 import { cn } from '../lib/utils';
 
-export const ArticlePage = () => {
-  const { id } = useParams();
-  const article = articles.find(a => a.id === Number(id));
+export const ArticlePage = ({ id }: { id: number }) => {
+  const article = articles.find(a => a.id === id);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -14,14 +15,14 @@ export const ArticlePage = () => {
   }, [id]);
 
   if (!article) {
-    return <Navigate to="/" replace />;
+    return null;
   }
 
   const relatedArticles = articles.filter(a => a.id !== article.id).slice(0, 4);
 
   return (
     <main className={cn(
-      "min-h-screen pt-[140px] pb-24 transition-colors duration-500",
+      "min-h-screen pt-[120px] pb-20 transition-colors duration-500",
       isDarkMode ? "bg-[var(--color-background)] text-white" : "bg-[#F4F4F6] text-[#1A1A1A]"
     )}>
       {/* Hero Section */}
@@ -29,9 +30,9 @@ export const ArticlePage = () => {
         <div className="mb-8 flex items-center justify-between">
           {/* Breadcrumbs */}
           <nav className={cn("flex items-center gap-2 text-sm font-medium", isDarkMode ? "text-white/60" : "text-[#1A1A1A]/60")}>
-            <Link to="/" className={cn("transition-colors", isDarkMode ? "hover:text-[var(--color-accent-green)]" : "hover:text-[var(--color-accent)]")}>Home</Link>
+            <Link href="/" className={cn("transition-colors", isDarkMode ? "hover:text-[var(--color-accent-green)]" : "hover:text-[var(--color-accent)]")}>Home</Link>
             <ChevronRight className="w-4 h-4" />
-            <Link to="/news" className={cn("transition-colors", isDarkMode ? "hover:text-[var(--color-accent-green)]" : "hover:text-[var(--color-accent)]")}>News</Link>
+            <Link href="/news" className={cn("transition-colors", isDarkMode ? "hover:text-[var(--color-accent-green)]" : "hover:text-[var(--color-accent)]")}>News</Link>
             <ChevronRight className="w-4 h-4" />
             <span className={cn("truncate max-w-[120px] sm:max-w-xs md:max-w-md", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>{article.title}</span>
           </nav>
@@ -56,10 +57,10 @@ export const ArticlePage = () => {
             </span>
             <span className={cn("text-sm font-medium", isDarkMode ? "text-white/50" : "text-[#1A1A1A]/50")}>{article.readTime}</span>
           </div>
-          <h1 className={cn("text-[48px] font-medium leading-[1.15] mb-6 tracking-tight", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>
+          <h1 className={cn("text-[24px] lg:text-[36px] font-medium leading-[1.15] mb-5 tracking-tight", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>
             {article.title}
           </h1>
-          <p className={cn("text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light", isDarkMode ? "text-white/70" : "text-[#1A1A1A]/70")}>
+          <p className={cn("text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light", isDarkMode ? "text-white/70" : "text-[#1A1A1A]/70")}>
             {article.deck}
           </p>
         </div>
@@ -150,10 +151,10 @@ export const ArticlePage = () => {
       {/* Related Articles */}
       {relatedArticles.length > 0 && (
         <section className={cn("max-w-7xl mx-auto px-6 mt-24 pt-16 border-t", isDarkMode ? "border-white/10" : "border-[#1A1A1A]/10")}>
-          <h3 className={cn("text-3xl font-medium mb-10", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>Related Articles</h3>
+          <h3 className={cn("text-xl lg:text-2xl font-medium mb-7", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>Related Articles</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {relatedArticles.map((item) => (
-              <Link to={`/news/${item.id}`} key={item.id} className="group flex flex-col gap-4">
+              <Link href={`/news/${item.id}`} key={item.id} className="group flex flex-col gap-4">
                 <div className={cn("w-full aspect-[4/3] rounded-xl overflow-hidden", isDarkMode ? "bg-white/5" : "bg-gray-200")}>
                   <img 
                     src={item.image} 

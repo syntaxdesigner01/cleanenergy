@@ -1,15 +1,18 @@
+'use client'
+
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
 import { portfolioData } from '../data/projects';
 
 export default function Breadcrumbs() {
-  const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const pathname = usePathname();
+  const pathnames = pathname.split('/').filter((x) => x);
 
   return (
     <nav className="flex items-center space-x-2 text-sm text-[var(--color-text-secondary)] mb-8">
-      <Link to="/" className="hover:text-white transition-colors flex items-center">
+      <Link href="/" className="hover:text-white transition-colors flex items-center">
         <Home className="w-4 h-4" />
       </Link>
       
@@ -36,7 +39,7 @@ export default function Breadcrumbs() {
             {isLast ? (
               <span className="text-white font-medium">{formattedName}</span>
             ) : (
-              <Link to={routeTo} className="hover:text-white transition-colors">
+              <Link href={routeTo} className="hover:text-white transition-colors">
                 {formattedName}
               </Link>
             )}

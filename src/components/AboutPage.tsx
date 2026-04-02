@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 

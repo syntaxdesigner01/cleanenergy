@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #050A15;
+  --color-surface: #0A1224;
+  --color-surface-hover: #101A33;
+  --color-border: #1A2644;
+  --color-border-light: #24355E;
+
+  --color-text-primary: #F0F4F8;
+  --color-text-secondary: #9BAECA;
+  --color-text-tertiary: #6B80A6;
+
+  --color-accent: #203A8F; /* Dark blue from logo */
+  --color-accent-light: #0085CA; /* Light blue from logo */
+  --color-accent-green: #50B848; /* Green from logo */
+
+  --radius-lg: 0.5rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-light);
+}
+
+/* Hide scrollbar for horizontal scrolling elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+/* Ticker Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(16, 26, 21, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

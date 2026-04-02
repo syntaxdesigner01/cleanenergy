@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useInView, useMotionValueEvent } from 'framer-motion';
 import { ArrowUpRight, Sun, ShieldCheck, Users, Globe2, Zap, Building2, Coins, TrendingUp, Leaf } from 'lucide-react';
@@ -323,7 +325,7 @@ export const AboutFund = () => {
       className="bg-[var(--color-background)] text-[var(--color-text-primary)] relative z-20"
     >
       {/* DARK SECTION: Mandate & Bento Grid */}
-      <div className="py-32">
+      <div className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial="hidden"
@@ -340,7 +342,7 @@ export const AboutFund = () => {
                 </span>
               </motion.div>
               
-              <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight text-[var(--color-text-primary)] mb-12">
+              <motion.h2 variants={fadeUp} className="text-3xl lg:text-[38px] font-medium leading-[1.15] tracking-tight text-[var(--color-text-primary)] mb-12">
                 We provide local currency funding from domestic institutional investors to small and medium sized climate compliant energy projects.
               </motion.h2>
 
@@ -460,9 +462,9 @@ export const AboutFund = () => {
       </div>
 
       {/* LIGHT SECTION: Approach & Rationale */}
-      <div className="bg-[#F8FAFC] py-32 text-slate-900 border-t border-slate-200">
+      <div className="bg-[#F8FAFC] py-20 lg:py-28 text-slate-900 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-[42px] font-medium leading-[1.15] tracking-tight mb-12">
+          <h2 className="text-3xl lg:text-[38px] font-medium leading-[1.15] tracking-tight mb-12">
             <span className="text-slate-900">Our Approach & </span>
             <span className="text-slate-400">Rationale</span>
           </h2>

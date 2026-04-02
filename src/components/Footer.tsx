@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TrendingUp, Building2, Globe, ArrowUpRight, Linkedin, Youtube, Instagram, Lightbulb, X } from 'lucide-react';
@@ -45,8 +47,8 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Connected Boxes CTA Section */}
-        <div className="mb-32 pt-20">
-          <h2 className="text-[42px] font-medium mb-16 tracking-tight leading-[1.15]">
+        <div className="mb-16 pt-10">
+          <h2 className="text-[22px] lg:text-[30px] font-medium mb-10 tracking-tight leading-[1.15]">
             <span className="text-white">Partnering for impact</span>{' '}
             <span className="text-[var(--color-text-secondary)]">across all sectors</span>
           </h2>
@@ -80,8 +82,8 @@ export const Footer = () => {
                     <div className="w-12 h-12 rounded-lg bg-[var(--color-accent-green)]/10 border border-[var(--color-accent-green)]/20 flex items-center justify-center mb-10 text-[var(--color-accent-green)] group-hover:scale-110 transition-transform duration-500">
                       <cta.icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-3xl font-medium text-white mb-4 tracking-tight">{cta.title}</h3>
-                    <p className="text-[var(--color-text-secondary)] text-lg leading-relaxed max-w-sm font-light group-hover:text-white/80 transition-colors duration-300">
+                    <h3 className="text-xl font-medium text-white mb-3 tracking-tight">{cta.title}</h3>
+                    <p className="text-[var(--color-text-secondary)] text-base leading-relaxed max-w-sm font-light group-hover:text-white/80 transition-colors duration-300">
                       {cta.description}
                     </p>
                   </div>
@@ -181,7 +183,7 @@ export const Footer = () => {
             <div className="lg:col-span-3">
               <div className="flex flex-col mb-6">
                 <div className="flex items-baseline mb-1">
-                  <span className="text-4xl font-bold text-white tracking-tight">FundCo</span>
+                  <span className="text-3xl font-bold text-white tracking-tight">FundCo</span>
                 </div>
                 <span className="text-[10px] text-white/70 tracking-[0.2em] uppercase">Capital Managers</span>
               </div>

@@ -1,7 +1,9 @@
+'use client'
+
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { articles } from '../data/articles';
 
 const fadeUp = {
@@ -38,7 +40,7 @@ const BlogArticle = ({ article, index, isLast, setLastActive }: { key?: React.Ke
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link to={`/news/${article.id}`} className="group cursor-pointer flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+      <Link href={`/news/${article.id}`} className="group cursor-pointer flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
         {/* Image - Square and smaller */}
         <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg overflow-hidden relative shrink-0">
           <img 
@@ -95,7 +97,7 @@ export const Blog = () => {
   const [isLastActive, setIsLastActive] = useState(false);
 
   return (
-    <section ref={containerRef} className="py-32 bg-[#F8FAFC] text-slate-900 border-t border-slate-200 relative z-20">
+    <section ref={containerRef} className="py-16 lg:py-24 bg-[#F8FAFC] text-slate-900 border-t border-slate-200 relative z-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           
@@ -115,7 +117,7 @@ export const Blog = () => {
                   </span>
                 </motion.div>
                 
-                <motion.h2 variants={fadeUp} className="text-[42px] font-medium leading-[1.15] tracking-tight mb-8">
+                <motion.h2 variants={fadeUp} className="text-[22px] lg:text-[30px] font-medium leading-[1.15] tracking-tight mb-6">
                   <span className="text-slate-900">Perspectives on</span> <br className="hidden lg:block" />
                   <span className="text-slate-500">Clean Energy & Finance.</span>
                 </motion.h2>
@@ -135,7 +137,7 @@ export const Blog = () => {
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     className="mt-4 hidden lg:block"
                   >
-                    <Link to="/news" className="bg-slate-900 text-white hover:bg-[var(--color-accent-light)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg w-fit whitespace-nowrap">
+                    <Link href="/news" className="bg-slate-900 text-white hover:bg-[var(--color-accent-light)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg w-fit whitespace-nowrap">
                       View All Articles <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   </motion.div>
@@ -160,7 +162,7 @@ export const Blog = () => {
 
             {/* Mobile CTA */}
             <div className="mt-8 lg:hidden flex justify-start">
-              <Link to="/news" className="bg-slate-900 text-white hover:bg-[var(--color-accent-light)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg w-fit whitespace-nowrap">
+              <Link href="/news" className="bg-slate-900 text-white hover:bg-[var(--color-accent-light)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg w-fit whitespace-nowrap">
                 View All Articles <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

@@ -1,8 +1,10 @@
+'use client'
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowUpRight, Globe2, Zap, Users, Leaf, DollarSign } from 'lucide-react';
 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { portfolioData, PortfolioItem } from '../data/projects';
 
 export const Portfolio = () => {
@@ -65,7 +67,7 @@ export const Portfolio = () => {
             </motion.h2>
           </div>
           <Link 
-            to="/portfolio"
+            href="/portfolio"
             className="bg-white text-black hover:bg-[var(--color-accent-green)] hover:text-white px-8 py-4 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2 shadow-lg"
           >
             View All Projects <ArrowUpRight className="w-4 h-4" />
@@ -229,7 +231,7 @@ export const Portfolio = () => {
                           <motion.div variants={itemVariants} className="h-10 w-[1px] bg-white/10 hidden md:block" />
                           
                           <motion.div variants={itemVariants}>
-                            <Link to={`/portfolio/${item.id}`} className="text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:text-[var(--color-accent-light)] transition-colors group/link">
+                            <Link href={`/portfolio/${item.id}`} className="text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:text-[var(--color-accent-light)] transition-colors group/link">
                               Full Case Study 
                               <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                             </Link>

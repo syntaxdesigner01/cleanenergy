@@ -1,7 +1,9 @@
+'use client'
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Filter, Globe2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { portfolioData } from '../data/projects';
 import Breadcrumbs from './Breadcrumbs';
 import { cn } from '../lib/utils';
@@ -250,7 +252,7 @@ export default function PortfolioArchive() {
                         </div>
                         
                         <Link 
-                          to={`/portfolio/${project.id}`}
+                          href={`/portfolio/${project.id}`}
                           className="inline-flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-[#4A5568] hover:text-[#1A1A1A] transition-colors group/link"
                         >
                           View Case Study
