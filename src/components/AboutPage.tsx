@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import Breadcrumbs from './Breadcrumbs';
 import { cn } from '../lib/utils';
+import { AboutUs } from './AboutUs';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,6 +29,7 @@ export const AboutPage = () => {
   return (
     <main className="bg-white">
       <HeroSection />
+      <AboutUs/>
       <MacroProblemSection />
       <FundStructureSection />
       <PrioritySectorsSection />
@@ -44,9 +46,22 @@ const HeroSection = () => {
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
   const heroY = useTransform(scrollY, [0, 600], [0, 100]);
 
+  const fundMetrics = [
+    { label: 'Climate Bonds', value: 'Certified', icon: Leaf },
+    { label: 'SEC Nigeria', value: 'Registered', icon: ShieldCheck },
+    { label: 'Fund Rating', value: 'Investment Grade', icon: TrendingUp },
+    { label: 'Ticker Symbol', value: 'CLEANENERGY', icon: Zap },
+  ];
+
+  const fundSdgs = [
+    { id: 7, color: '#FCC30B', label: 'Affordable and Clean Energy' },
+    { id: 13, color: '#3F7E44', label: 'Climate Action' },
+    { id: 8, color: '#A21942', label: 'Decent Work and Economic Growth' },
+  ];
+
   return (
-    <section className="relative pt-32 pb-24 bg-[var(--color-background)] overflow-hidden min-h-[50vh] flex flex-col justify-center border-b border-white/5">
-      {/* Video Background Layer */}
+    <section className="relative pt-32 pb-24 bg-[var(--color-background)] overflow-hidden min-h-[60vh] flex flex-col justify-center border-b border-white/5">
+      {/* Background Layer */}
       <motion.div style={{ opacity: heroOpacity }} className="absolute inset-0 z-0">
         <video 
           autoPlay 
@@ -54,66 +69,93 @@ const HeroSection = () => {
           muted 
           playsInline
           poster="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2574&auto=format&fit=crop"
-          className="w-full h-full object-cover motion-reduce:hidden"
+          className="w-full h-full object-cover opacity-20 motion-reduce:hidden"
         >
           <source src="https://cdn.coverr.co/videos/coverr-solar-panels-in-a-field-5244/1080p.mp4" type="video/mp4" />
         </video>
         <img 
           src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2574&auto=format&fit=crop" 
           alt="Solar panels" 
-          className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover" 
+          className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover opacity-20" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050A15]/40 via-[#050A15]/60 to-[#050A15] z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent z-10" />
       </motion.div>
 
-      <motion.div 
-        style={{ opacity: heroOpacity, y: heroY }}
-        className="relative z-20 w-full max-w-7xl mx-auto px-6 flex flex-col justify-end h-full"
-      >
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex-1 flex flex-col justify-center">
         <div className="mb-8">
           <Breadcrumbs />
         </div>
 
         <motion.div 
+          style={{ opacity: heroOpacity, y: heroY }}
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="max-w-4xl"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end"
         >
-          <motion.div variants={fadeUp} className="flex items-center gap-3 mb-8">
-            <div className="w-2 h-2 rounded-full bg-[var(--color-accent-green)]" />
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--color-text-tertiary)]">
-              Nigeria's First & Only Certified Green Fund
-            </span>
+          {/* Left Column: Text Content */}
+          <motion.div variants={fadeUp} className="lg:col-span-8">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-3 mb-8 bg-[var(--color-accent-green)]/10 border border-[var(--color-accent-green)]/30 px-3 py-1 rounded-full">
+              <div className="w-2 h-2 rounded-full bg-[var(--color-accent-green)] animate-pulse" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent-green)]">
+                Nigeria's First & Only Certified Green Fund
+              </span>
+            </motion.div>
+            
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-light leading-tight mb-5 text-white max-w-4xl tracking-tight">
+              Pioneering Local Currency <br />
+              <span className="text-white/50 font-normal">Clean Energy Investments in Nigeria.</span>
+            </h1>
+
+            <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl leading-relaxed">
+              Bridging the gap between institutional capital and climate-aligned infrastructure. We deliver risk-adjusted, stable returns while completely eliminating FX volatility for domestic investors.
+            </p>
           </motion.div>
-          
-          <motion.h1 variants={fadeUp} className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-[1.15] tracking-tight mb-8">
-            <span className="text-white">Pioneering Local Currency </span>
-            <span className="text-white/50">Clean Energy Investments in Nigeria.</span>
-          </motion.h1>
-          
-          <motion.p variants={fadeUp} className="text-3xl md:text-4xl text-white/80 max-w-2xl mb-12 leading-relaxed font-light">
-            Bridging the gap between institutional capital and climate-aligned infrastructure. We deliver risk-adjusted, stable returns while completely eliminating FX volatility for domestic investors.
-          </motion.p>
-          
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/10">
-            <div className="flex items-center gap-3">
-              <Leaf className="w-6 h-6 text-[var(--color-accent-green)]" />
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Climate Bonds Certified</span>
+
+          {/* Right Column: Metrics & alignment cards */}
+          <motion.div variants={fadeUp} className="lg:col-span-4 flex flex-col gap-6">
+            <div className="grid grid-cols-2 gap-4">
+              {fundMetrics.map((metric, idx) => {
+                const Icon = metric.icon;
+                return (
+                  <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex flex-col items-start transition-all hover:bg-white/10 hover:border-white/20">
+                    <Icon className="w-4 h-4 text-[var(--color-accent-green)] mb-3" />
+                    <div className="text-sm font-medium text-white mb-1 leading-tight">{metric.value}</div>
+                    <div className="text-[9px] font-bold uppercase tracking-widest text-white/40">{metric.label}</div>
+                  </div>
+                );
+              })}
             </div>
-            <div className="w-px h-8 bg-white/10 hidden sm:block" />
-            <div className="flex items-center gap-3">
-              <ShieldCheck className="w-6 h-6 text-[var(--color-accent-light)]" />
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">SEC Nigeria Registered</span>
-            </div>
-            <div className="w-px h-8 bg-white/10 hidden sm:block" />
-            <div className="flex items-center gap-3">
-              <TrendingUp className="w-6 h-6 text-white" />
-              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Investment Grade: Stable</span>
+
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-xl">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 block mb-4">
+                Strategic SDG Alignment
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {fundSdgs.map((sdg) => (
+                  <div 
+                    key={sdg.id} 
+                    className="group/sdg relative flex items-center gap-1.5 px-2 py-1 rounded-full border border-white/5 hover:border-white/20 transition-all cursor-default"
+                    style={{ backgroundColor: `${sdg.color}1A`, borderColor: `${sdg.color}33` }}
+                  >
+                    <div 
+                      className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold"
+                      style={{ backgroundColor: sdg.color, color: sdg.id === 7 ? 'black' : 'white' }}
+                    >
+                      {sdg.id}
+                    </div>
+                    <span className="text-[10px] font-medium" style={{ color: sdg.color }}>SDG {sdg.id}</span>
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-[#1A1A1A]/90 backdrop-blur-md border border-white/10 text-white text-[10px] font-medium rounded-lg opacity-0 group-hover/sdg:opacity-100 transition-all duration-300 pointer-events-none w-max max-w-[200px] text-center shadow-xl scale-95 group-hover/sdg:scale-100 z-50">
+                      {sdg.label}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1A1A1A]/90" />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
