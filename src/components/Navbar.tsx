@@ -5,6 +5,7 @@ import { Menu, X, ArrowUpRight, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,29 +35,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between w-full relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 z-50 shrink-0">
-          <div className={cn(
-            "w-8 h-8 rounded-full border flex items-center justify-center transition-colors duration-500",
-            useDarkText ? "border-[var(--color-accent-green)] bg-[var(--color-accent-green)]/10" : "border-white/20"
-          )}>
-            <Lightbulb className={cn(
-              "w-4 h-4 transition-colors duration-500",
-              useDarkText ? "text-[var(--color-accent-green)]" : "text-white"
-            )} />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className={cn(
-              "font-bold tracking-widest text-sm uppercase leading-tight transition-colors duration-500",
-              useDarkText ? "text-[var(--color-accent)]" : "text-white"
-            )}>
-              Clean Energy
-            </span>
-            <span className={cn(
-              "text-xs tracking-wide transition-colors duration-500",
-              useDarkText ? "text-[var(--color-accent-green)]" : "text-white"
-            )}>
-              Local Currency Fund
-            </span>
-          </div>
+           <Image src="/logo.png" alt="Logo" width={200} height={200} />
         </Link>
 
         {/* Desktop Nav - Center */}
