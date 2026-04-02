@@ -99,170 +99,129 @@ export const Portfolio = ({ limit }: { limit?: number }) => {
           </div>
         </div>
 
-        <div className="border-t border-white/10">
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+        >
           <AnimatePresence mode="popLayout">
-            {displayedData.map((item) => (
-              <motion.div 
-                key={item.id} 
+            {displayedData.map((project) => (
+              <motion.div
+                key={project.id}
                 layout
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="border-b border-white/10"
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="group flex flex-col bg-white border border-[#1A1A1A]/10 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
               >
-                <button 
-                  onClick={() => toggleExpand(item.id)}
-                  className="w-full py-8 flex items-center justify-between group text-left"
-                >
-                <div className="flex items-center gap-8 md:gap-16 flex-1">
-                  <span className="text-2xl font-light text-white/20 font-serif w-12">{item.id}</span>
-                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-12 flex-1">
-                    <h3 className="text-xl md:text-2xl font-medium group-hover:translate-x-2 transition-transform duration-300">
-                      {item.name}
-                    </h3>
-                    <div className="flex items-center gap-6 opacity-40 group-hover:opacity-100 transition-opacity">
-                      <span className="text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-                        <Globe2 className="w-3 h-3" /> {item.location}
-                      </span>
-                      <span className="text-xs font-bold tracking-widest uppercase flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-light)]" /> {item.status}
-                      </span>
+                {/* Image Header */}
+                <div className="aspect-[16/9] overflow-hidden relative">
+                  <img 
+                    src={project.image} 
+                    alt={project.name}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10" />
+                  <div className="absolute top-4 left-4 z-20 flex gap-2">
+                    <span 
+                      className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full border shadow-sm backdrop-blur-md"
+                      style={{ 
+                        backgroundColor: `${(project as any).sectorColor || '#1A1A1A'}1A`,
+                        borderColor: `${(project as any).sectorColor || '#1A1A1A'}33`,
+                        color: (project as any).sectorColor || '#1A1A1A'
+                      }}
+                    >
+                      {project.sector}
+                    </span>
+                  </div>
+                </div>
+                
+                {/* Content Body */}
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-2xl font-medium text-[#1A1A1A] mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                        {project.name}
+                      </h3>
+                      <div className="flex items-center gap-4 text-xs font-bold tracking-widest uppercase text-[#1A1A1A]/50">
+                        <span className="flex items-center gap-1"><Globe2 className="w-3 h-3" /> {project.location}</span>
+                        <span className="flex items-center gap-1"><div className="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]" /> {project.status}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-8">
-                  <span className="hidden md:block text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase border border-white/10 px-3 py-1 rounded-full">
-                    {item.sector}
-                  </span>
-                  <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${expandedId === item.id ? 'bg-white text-black rotate-180' : 'group-hover:bg-white/10'}`}>
-                    {expandedId === item.id ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                  </div>
-                </div>
-              </button>
+                  
+                  <p className="text-[#1A1A1A]/70 text-sm leading-relaxed mb-8 flex-grow">
+                    {expandedTextId === project.id || project.description.length <= 150
+                      ? project.description
+                      : `${project.description.substring(0, 150)}...`}
+                    {project.description.length > 150 && (
+                      <button 
+                        onClick={(e) => { e.preventDefault(); setExpandedTextId(expandedTextId === project.id ? null : project.id); }}
+                        className="ml-2 text-sm font-medium text-[var(--color-accent)] hover:text-[#1A1A1A] transition-colors"
+                      >
+                        {expandedTextId === project.id ? 'Read Less' : 'Read More'}
+                      </button>
+                    )}
+                  </p>
 
-              <AnimatePresence>
-                {expandedId === item.id && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="pb-16 pt-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                      <div className="lg:col-span-7 flex flex-col justify-between">
-                        <div>
-                          <p className="text-xl md:text-2xl text-white/70 font-light leading-relaxed mb-12">
-                            {expandedTextId === item.id || item.description.length <= 120
-                              ? item.description
-                              : `${item.description.substring(0, 120)}...`}
-                            {item.description.length > 120 && (
-                              <button 
-                                onClick={(e) => { e.stopPropagation(); setExpandedTextId(expandedTextId === item.id ? null : item.id); }}
-                                className="ml-3 text-sm font-medium text-[var(--color-accent-green)] hover:text-white transition-colors"
-                              >
-                                {expandedTextId === item.id ? 'Read Less' : 'Read More'}
-                              </button>
-                            )}
-                          </p>
-                          
-                          <motion.div 
-                            variants={containerVariants}
-                            initial="hidden"
-                            animate="visible"
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
-                          >
-                            {item.metrics.map((metric, idx) => (
-                              <motion.div 
-                                key={idx} 
-                                variants={itemVariants}
-                                whileHover={{ 
-                                  y: -5, 
-                                  backgroundColor: 'rgba(15, 83, 129, 0.4)', 
-                                  borderColor: 'rgba(0, 133, 202, 0.3)',
-                                  boxShadow: '0 10px 30px -10px rgba(0, 133, 202, 0.15)'
-                                }}
-                                className="bg-[rgba(15,83,129,0.28)] border border-white/10 p-5 rounded-lg backdrop-blur-md transition-all group/metric cursor-default"
-                              >
-                                <motion.div
-                                  whileHover={{ scale: 1.2, rotate: 5 }}
-                                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                                >
-                                  <metric.icon className="w-5 h-5 text-white/40 mb-3 group-hover/metric:text-[var(--color-accent-light)] transition-colors duration-300" />
-                                </motion.div>
-                                <div className="text-2xl font-light mb-1">{metric.value}</div>
-                                <div className="text-[9px] font-bold uppercase tracking-widest text-white/40 group-hover/metric:text-white/70 transition-colors">{metric.label}</div>
-                              </motion.div>
-                            ))}
-                          </motion.div>
+                  {/* Metrics Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                    {project.metrics.map((metric, idx) => {
+                      const Icon = metric.icon;
+                      return (
+                        <div key={idx} className="bg-[#F4F4F6] p-4 rounded-xl flex flex-col items-center text-center group/metric transition-colors hover:bg-white hover:shadow-sm border border-transparent hover:border-[#1A1A1A]/5">
+                          <Icon className="w-4 h-4 text-[var(--color-accent)] mb-2" />
+                          <div className="text-lg font-light text-[#1A1A1A] mb-1">{metric.value}</div>
+                          <div className="text-[9px] font-bold uppercase tracking-widest text-[#1A1A1A]/50">{metric.label}</div>
                         </div>
+                      );
+                    })}
+                  </div>
 
-                        <motion.div 
-                          variants={containerVariants}
-                          initial="hidden"
-                          animate="visible"
-                          className="flex flex-wrap items-center gap-12"
-                        >
-                          <div className="flex items-center gap-6">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 whitespace-nowrap">
-                              SDG Impact:
-                            </span>
-                            <div className="flex flex-wrap items-center gap-2">
-                              {item.sdgs.map((sdg) => (
-                                <motion.div 
-                                  key={sdg.id} 
-                                  variants={itemVariants}
-                                  className="group/sdg relative flex items-center gap-1.5 px-2 py-1 rounded-full border cursor-default"
-                                  style={{ backgroundColor: `${sdg.color}1A`, borderColor: `${sdg.color}33` }}
-                                >
-                                  <div 
-                                    className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold"
-                                    style={{ backgroundColor: sdg.color, color: sdg.id === 7 ? 'black' : 'white' }}
-                                  >
-                                    {sdg.id}
-                                  </div>
-                                  <span className="text-[10px] font-medium" style={{ color: sdg.color }}>SDG {sdg.id}</span>
-                                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-[#1A1A1A]/90 backdrop-blur-md border border-white/10 text-white text-[10px] font-medium rounded-lg opacity-0 group-hover/sdg:opacity-100 transition-all duration-300 pointer-events-none w-max max-w-[200px] text-center shadow-xl scale-95 group-hover/sdg:scale-100 z-50">
-                                    {sdg.label}
-                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1A1A1A]/90" />
-                                  </div>
-                                </motion.div>
-                              ))}
+                  {/* Footer / SDGs / Link */}
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-6 border-t border-[#1A1A1A]/10 mt-auto">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1A1A1A]/40">
+                        SDGs:
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {project.sdgs.map((sdg) => (
+                          <div 
+                            key={sdg.id} 
+                            className="group/sdg relative flex items-center gap-1.5 px-2 py-1 rounded-full border cursor-default"
+                            style={{ backgroundColor: `${sdg.color}1A`, borderColor: `${sdg.color}33` }}
+                          >
+                            <div 
+                              className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold"
+                              style={{ backgroundColor: sdg.color, color: sdg.id === 7 ? 'black' : 'white' }}
+                            >
+                              {sdg.id}
+                            </div>
+                            <span className="text-[10px] font-medium" style={{ color: sdg.color }}>SDG {sdg.id}</span>
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-[#1A1A1A]/90 backdrop-blur-md border border-white/10 text-white text-[10px] font-medium rounded-lg opacity-0 group-hover/sdg:opacity-100 transition-all duration-300 pointer-events-none w-max max-w-[200px] text-center shadow-xl scale-95 group-hover/sdg:scale-100 z-50">
+                              {sdg.label}
+                              <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1A1A1A]/90" />
                             </div>
                           </div>
-                          
-                          <motion.div variants={itemVariants} className="h-10 w-[1px] bg-white/10 hidden md:block" />
-                          
-                          <motion.div variants={itemVariants}>
-                            <Link href={`/portfolio/${item.id}`} className="text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 hover:text-[var(--color-accent-light)] transition-colors group/link">
-                              Full Case Study 
-                              <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
-                            </Link>
-                          </motion.div>
-                        </motion.div>
-                      </div>
-
-                      <div className="lg:col-span-5">
-                        <div className="aspect-[4/3] rounded-lg overflow-hidden relative group/img">
-                          <img 
-                            src={item.image} 
-                            alt={item.name} 
-                            className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
-                            referrerPolicy="no-referrer"
-                          />
-                          <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
-                        </div>
+                        ))}
                       </div>
                     </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    
+                    <Link 
+                      href={`/portfolio/${project.id}`}
+                      className="inline-flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] hover:text-[#1A1A1A] transition-colors group/link"
+                    >
+                      View Case Study
+                      <ArrowUpRight className="w-4 h-4 ml-2 transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {limit && (
           <motion.div 

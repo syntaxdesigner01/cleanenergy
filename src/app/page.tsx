@@ -9,7 +9,7 @@ import { Portfolio } from '@/components/Portfolio';
 import { DevelopmentImpact } from '@/components/DevelopmentImpact';
 import { Blog } from '@/components/Blog';
 import { EligibilityCriteria } from '@/components/EligibilityCriteria';
-import { AboutUs } from '@/components/AboutUs';
+
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -68,7 +68,7 @@ const Hero = () => {
           poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
           className="w-full h-full object-cover motion-reduce:hidden"
         >
-          <source src="https://cdn.coverr.co/videos/coverr-wind-turbines-at-sunset-2645/1080p.mp4" type="video/mp4" />
+          <source src="/cleanEnergyVid.mp4" type="video/mp4" />
         </video>
         <img
           src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
