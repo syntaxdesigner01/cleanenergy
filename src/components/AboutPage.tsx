@@ -111,6 +111,7 @@ const HeroSection = () => {
               Bridging the gap between institutional capital and climate-aligned infrastructure. We deliver risk-adjusted, stable returns while completely eliminating FX volatility for domestic investors.
             </p>
           </motion.div>
+          
 
           {/* Right Column: Metrics & alignment cards */}
           <motion.div variants={fadeUp} className="lg:col-span-4 flex flex-col gap-6">
@@ -154,7 +155,26 @@ const HeroSection = () => {
               </div>
             </div>
           </motion.div>
+
+          
         </motion.div>
+
+           {/* <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-6 pt-8 border-t border-white/10">
+            <div className="flex items-center gap-3">
+              <Leaf className="w-6 h-6 text-[var(--color-accent-green)]" />
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Climate Bonds Certified</span>
+            </div>
+            <div className="w-px h-8 bg-white/10 hidden sm:block" />
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-6 h-6 text-[var(--color-accent-light)]" />
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">SEC Nigeria Registered</span>
+            </div>
+            <div className="w-px h-8 bg-white/10 hidden sm:block" />
+            <div className="flex items-center gap-3">
+              <TrendingUp className="w-6 h-6 text-white" />
+              <span className="text-sm font-medium text-white/80 uppercase tracking-wider">Investment Grade: Stable</span>
+            </div>
+          </motion.div> */}
       </div>
     </section>
   );
@@ -179,7 +199,7 @@ const MacroProblemSection = () => {
                 The Challenge
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-[1.15] tracking-tight">
+         <h2 className="text-[42px] md:text-5xl lg:text-6xl font-medium leading-[1.15] tracking-tight">
               <span className="text-slate-900">The ₦4 Trillion </span>
               <span className="text-slate-400">Market Gap.</span>
             </h2>

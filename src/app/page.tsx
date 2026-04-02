@@ -68,7 +68,7 @@ const Hero = () => {
           poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
           className="w-full h-full object-cover motion-reduce:hidden"
         >
-          <source src="/cleanEnergyVid.mp4" type="video/mp4" />
+          <source src="/cleanEnergyVid.mp4" type="video/mp4" rel="preload" />
         </video>
         <img
           src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
