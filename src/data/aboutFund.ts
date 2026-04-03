@@ -1,8 +1,16 @@
 import { Zap, TrendingUp, Building2, Leaf } from 'lucide-react';
 
 export const credentials = [
-  "Certified under the Climate Bonds Standard, ensuring investments align with sustainability benchmarks.",
-  "Assigned an investment-grade national scale rating, reflecting robust governance and portfolio quality."
+ {
+  id: 1,
+  content: "Certified under the Climate Bonds Standard, ensuring investments align with sustainability benchmarks.",
+  img: "/EML.png"
+ },
+ {
+  id: 2,
+  content: "Assigned an investment-grade national scale rating, reflecting robust governance and portfolio quality.",
+  img: "//EML.png"
+ }
 ];
 
 export const tabs = ['Why CeF', 'Fund Aims', 'How CeF Works'];

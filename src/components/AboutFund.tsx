@@ -20,6 +20,14 @@ export const AboutFund = () => {
   const [isHowWorksLastActive, setIsHowWorksLastActive] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState('Why CeF');
   const [credentialIndex, setCredentialIndex] = React.useState(0);
+  
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCredentialIndex((prev) => (prev + 1) % credentials.length);
+    }, 5000); // Cycle every 5 seconds
+    
+    return () => clearInterval(timer);
+  }, []);
 
 
   return (
@@ -97,18 +105,36 @@ export const AboutFund = () => {
                 image="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2670&auto=format&fit=crop"
                 forceHover={true}
               >
-                <div className="relative h-28 overflow-hidden">
+                <div className="relative h-28 flex items-center">
                   <AnimatePresence mode="wait">
-                    <motion.h3 
+                    <motion.div 
                       key={credentialIndex}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="text-3xl font-medium leading-tight text-white absolute inset-0"
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="flex flex-row items-center gap-8 absolute inset-0"
                     >
-                      {credentials[credentialIndex]}
-                    </motion.h3>
+                      <div className="flex-1 overflow-hidden h-full flex items-center">
+                        <h3 className="text-2xl md:text-3xl font-medium leading-tight text-white pr-40">
+                          {credentials[credentialIndex].content}
+                        </h3>
+                      </div>
+                      
+                      {credentials[credentialIndex].img && (
+                        <div className="hidden sm:flex w-48 absolute -right-8 -top-40 -bottom-40 items-center justify-center z-20  border-slate-100 ">
+                          <div className="relative w-[120px] h-[120px] -top-14">
+                            <Image 
+                              src={credentials[credentialIndex].img.startsWith('//') ? credentials[credentialIndex].img.slice(1) : credentials[credentialIndex].img}
+                              alt="Credential Logo"
+                              fill
+                              className="object-contain"
+                              priority
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </motion.div>
                   </AnimatePresence>
                 </div>
               </FocusCard>
