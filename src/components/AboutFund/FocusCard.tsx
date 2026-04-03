@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { fadeUp } from './animations';
 
 interface FocusCardProps {
@@ -38,11 +39,11 @@ export const FocusCard = ({
   >
     {image && (
       <div className={`absolute inset-0 z-0 transition-opacity duration-700 ${forceHover ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
-        <img 
+        <Image 
           src={image} 
           alt={headline} 
+          fill
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 opacity-40 mix-blend-luminosity ${forceHover ? 'scale-105' : 'group-hover:scale-105'}`}
-          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-[rgb(0,133,202)]/60 mix-blend-multiply" />
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent" />

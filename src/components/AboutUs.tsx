@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
+import Image from 'next/image';
 
 
 export function AboutUs() {
@@ -55,11 +56,11 @@ const staggerContainer = {
 
             <motion.div variants={fadeUp} className="bg-white rounded-2xl p-5 flex flex-col shadow-sm">
               <div className="h-40 rounded-xl overflow-hidden mb-5 relative">
-                <img
-                  src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop"
-                  alt="Local Currency"
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
+                <Image 
+                  src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" 
+                  alt="Local Currency" 
+                  fill
+                  className="w-full h-full object-cover" 
                 />
               </div>
               <h4 className="text-lg font-medium mb-2">Local Currency</h4>

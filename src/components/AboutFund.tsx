@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Sun, ShieldCheck, Users, Globe2 } from 'lucide-react';
+import Image from 'next/image';
 
 // Data
 import { credentials, tabs, fundRationale, fundAims, operatingModel, partners } from '@/data/aboutFund';
@@ -263,11 +264,11 @@ export const AboutFund = () => {
                 >
                   {fundAims.map((item, i) => (
                     <div key={i} className="group relative h-[320px] rounded-lg overflow-hidden bg-slate-900">
-                      <img 
+                      <Image 
                         src={item.img} 
                         alt={item.title} 
+                        fill
                         className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110"
-                        referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply group-hover:bg-[rgb(0,133,202)]/60 transition-colors duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />

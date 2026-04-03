@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, ArrowUpRight, Globe2, Zap, Users, Leaf, DollarSign } from 'lucide-react';
+import Image from 'next/image';
 
 import Link from 'next/link';
 import { portfolioData, PortfolioItem } from '../data/projects';
@@ -245,11 +246,11 @@ export const Portfolio = ({ limit }: { limit?: number }) => {
 
                       <div className="lg:col-span-5">
                         <div className="aspect-[4/3] rounded-lg overflow-hidden relative group/img">
-                          <img 
+                          <Image 
                             src={item.image} 
                             alt={item.name} 
+                            fill
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-110"
-                            referrerPolicy="no-referrer"
                           />
                           <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500" />

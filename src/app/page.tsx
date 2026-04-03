@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -68,12 +69,14 @@ const Hero = () => {
           poster="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
           className="w-full h-full object-cover motion-reduce:hidden"
         >
-          <source src="/cleanEnergyVid.mp4" type="video/mp4" rel="preload" />
+          <source src="https://res.cloudinary.com/diqfojkri/video/upload/v1775236878/cleanEnergyVid_hfhmke.mp4" type="video/mp4" />
         </video>
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2672&auto=format&fit=crop"
           alt="Aerial view of clean energy infrastructure with wind turbines and solar panels"
-          className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover"
+          fill
+          priority
+          className="hidden motion-reduce:block object-cover"
         />
         <div className="absolute inset-0 bg-[var(--color-background)]/40 z-10 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)]/90 via-[var(--color-background)]/20 to-[var(--color-background)]/40 z-10" />

@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import NextTopLoader from 'nextjs-toploader'
+import { ImagePreloader } from '@/components/ImagePreloader'
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
           speed={200}
           shadow="0 0 10px var(--color-accent-green),0 0 5px var(--color-accent-green)"
         />
+        <ImagePreloader />
         <Navbar />
         {children}
         <Footer />

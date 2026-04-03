@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, ChevronRight, Sun, Moon } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { articles } from '../data/articles';
 import { cn } from '../lib/utils';
 
@@ -65,12 +66,13 @@ export const ArticlePage = ({ id }: { id: number }) => {
           </p>
         </div>
 
-        <div className="w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden mb-16 shadow-lg">
-          <img 
+        <div className="w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden mb-16 shadow-lg relative">
+          <Image 
             src={article.image} 
             alt={article.title}
+            fill
+            priority
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
         </div>
 
@@ -82,7 +84,9 @@ export const ArticlePage = ({ id }: { id: number }) => {
               <div>
                 <h4 className={cn("text-xs font-bold uppercase tracking-widest mb-4", isDarkMode ? "text-white/40" : "text-[#1A1A1A]/40")}>Posted by</h4>
                 <div className="flex items-center gap-3">
-                  <img src={article.author.avatar} alt={article.author.name} className="w-10 h-10 rounded-full object-cover" />
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                    <Image src={article.author.avatar} alt={article.author.name} fill className="object-cover" />
+                  </div>
                   <span className={cn("text-sm font-medium", isDarkMode ? "text-white" : "text-[#1A1A1A]")}>{article.author.name}</span>
                 </div>
               </div>
@@ -155,12 +159,12 @@ export const ArticlePage = ({ id }: { id: number }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {relatedArticles.map((item) => (
               <Link href={`/news/${item.id}`} key={item.id} className="group flex flex-col gap-4">
-                <div className={cn("w-full aspect-[4/3] rounded-xl overflow-hidden", isDarkMode ? "bg-white/5" : "bg-gray-200")}>
-                  <img 
+                <div className={cn("w-full aspect-[4/3] rounded-xl overflow-hidden relative", isDarkMode ? "bg-white/5" : "bg-gray-200")}>
+                  <Image 
                     src={item.image} 
                     alt={item.title} 
+                    fill
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="flex flex-wrap gap-2">

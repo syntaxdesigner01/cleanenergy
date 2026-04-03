@@ -3,8 +3,8 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { hostname: 'images.unsplash.com' },
-      { hostname: 'cdn.coverr.co' },
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'cdn.coverr.co' },
     ],
   },
 }

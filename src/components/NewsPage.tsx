@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Sun, Moon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { articles } from '../data/articles';
@@ -40,7 +41,13 @@ export const NewsPage = () => {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute inset-0"
               >
-                <img src={featuredArticles[currentSlide].image} alt={featuredArticles[currentSlide].title} className="w-full h-full object-cover" />
+                <Image 
+                  src={featuredArticles[currentSlide].image} 
+                  alt={featuredArticles[currentSlide].title} 
+                  fill
+                  priority
+                  className="w-full h-full object-cover" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full md:w-2/3 z-10">
                   <span
@@ -131,7 +138,12 @@ export const NewsPage = () => {
             {gridArticles.map(article => (
               <Link href={`/news/${article.id}`} key={article.id} className="group flex flex-col">
                 <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-4 relative">
-                  <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image 
+                    src={article.image} 
+                    alt={article.title} 
+                    fill
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
                   <div className="absolute top-4 left-4">
                     <span
                       className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest border backdrop-blur-sm"
@@ -190,7 +202,12 @@ export const NewsPage = () => {
                 </Link>
               </div>
               <div className="rounded-2xl overflow-hidden h-[200px] relative group">
-                <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop" alt="Solar panels" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop" 
+                  alt="Solar panels" 
+                  fill
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6 text-white">
                   <p className="text-sm font-medium text-white/80 mb-1">Active Projects</p>
@@ -199,7 +216,12 @@ export const NewsPage = () => {
               </div>
             </div>
             <div className="lg:col-span-8 rounded-2xl overflow-hidden h-[420px] relative group">
-              <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1600&auto=format&fit=crop" alt="Wind turbines" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image 
+                src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1600&auto=format&fit=crop" 
+                alt="Wind turbines" 
+                fill
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 w-full p-10 text-center">
                 <h3 className="text-2xl md:text-3xl font-medium text-white leading-tight max-w-2xl mx-auto">

@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { articles } from '../data/articles';
 
@@ -43,11 +44,11 @@ const BlogArticle = ({ article, index, isLast, setLastActive }: { key?: React.Ke
       <Link href={`/news/${article.id}`} className="group cursor-pointer flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
         {/* Image - Square and smaller */}
         <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg overflow-hidden relative shrink-0">
-          <img 
+          <Image 
             src={article.image} 
             alt={article.title}
+            fill
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />

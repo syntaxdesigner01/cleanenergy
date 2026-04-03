@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Filter, Globe2 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { portfolioData } from '../data/projects';
 import Breadcrumbs from './Breadcrumbs';
@@ -43,11 +44,12 @@ export default function PortfolioArchive() {
       {/* Dark Hero Section */}
       <section className="relative pt-32 pb-24 bg-[var(--color-background)] overflow-hidden min-h-[50vh] flex flex-col justify-center border-b border-white/5">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2670&auto=format&fit=crop" 
             alt="Portfolio Hero" 
+            fill
+            priority
             className="w-full h-full object-cover opacity-20"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent" />
         </div>
@@ -159,11 +161,11 @@ export default function PortfolioArchive() {
                   >
                     {/* Image Header */}
                     <div className="aspect-[16/9] overflow-hidden relative">
-                      <img 
+                      <Image 
                         src={project.image} 
                         alt={project.name}
+                        fill
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                        referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10" />
                       <div className="absolute top-4 left-4 z-20 flex gap-2">

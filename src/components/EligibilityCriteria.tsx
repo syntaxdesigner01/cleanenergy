@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
 
 const prioritySectors = [
   {
@@ -83,11 +84,11 @@ export const EligibilityCriteria = () => {
               >
                 {prioritySectors.map((sector, idx) => (
                   <div key={idx} className="min-w-[calc(50%-12px)] h-[260px] relative rounded-lg overflow-hidden shadow-xl group">
-                    <img 
+                    <Image 
                       src={sector.image} 
                       alt={sector.title}
+                      fill
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply group-hover:bg-[rgb(0,133,202)]/60 transition-colors duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

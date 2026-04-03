@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ArrowLeft, Layers, Zap, DollarSign, Leaf, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { portfolioData } from '../data/projects';
 import Breadcrumbs from './Breadcrumbs';
 
@@ -139,11 +140,12 @@ export const CaseStudy = ({ id }: { id: string }) => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 bg-[var(--color-background)] overflow-hidden min-h-[50vh] flex flex-col justify-center border-b border-white/5">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image 
             src={project.image} 
             alt="Project Hero" 
+            fill
+            priority
             className="w-full h-full object-cover opacity-20"
-            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent" />
         </div>
@@ -398,8 +400,8 @@ export const CaseStudy = ({ id }: { id: string }) => {
                   <p className="text-slate-600 leading-relaxed mb-8">
                     Financed the deployment of new infrastructure across key commercial nodes, ensuring optimal coverage.
                   </p>
-                  <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1620800647868-81d9f8260401?q=80&w=800&auto=format&fit=crop" alt="Infrastructure" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <div className="aspect-[4/3] rounded-lg overflow-hidden relative">
+                    <Image src="https://images.unsplash.com/photo-1620800647868-81d9f8260401?q=80&w=800&auto=format&fit=crop" alt="Infrastructure" fill className="w-full h-full object-cover" />
                   </div>
                 </motion.div>
 
@@ -415,7 +417,7 @@ export const CaseStudy = ({ id }: { id: string }) => {
                     </p>
                   </div>
                   <div className="aspect-[4/3] rounded-lg overflow-hidden relative z-10">
-                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop" alt="Capacity" className="w-full h-full object-cover opacity-90" referrerPolicy="no-referrer" />
+                    <Image src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop" alt="Capacity" fill className="w-full h-full object-cover opacity-90" />
                   </div>
                 </motion.div>
               </div>
@@ -456,11 +458,11 @@ export const CaseStudy = ({ id }: { id: string }) => {
                     >
                       {/* Hover Image Background */}
                       <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                        <img 
+                        <Image 
                           src={metric.image} 
                           alt={metric.label} 
+                          fill
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-40 mix-blend-luminosity"
-                          referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-[var(--color-accent)]/60 mix-blend-multiply" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent" />
@@ -541,11 +543,11 @@ export const CaseStudy = ({ id }: { id: string }) => {
                     key={idx} 
                     className="min-w-[85%] md:min-w-[60%] lg:min-w-[45%] snap-center rounded-lg overflow-hidden aspect-video relative border border-slate-200"
                   >
-                    <img 
+                    <Image 
                       src={img} 
+                      fill
                       className="object-cover w-full h-full" 
                       alt={`Gallery image ${idx + 1}`}
-                      referrerPolicy="no-referrer"
                     />
                   </div>
                 ))}
@@ -573,11 +575,11 @@ export const CaseStudy = ({ id }: { id: string }) => {
                       whileHover={{ y: -5 }}
                       className="group relative h-[300px] rounded-lg overflow-hidden bg-white cursor-pointer border border-slate-200"
                     >
-                      <img 
+                      <Image 
                         src={otherProject.image} 
                         alt={otherProject.name} 
+                        fill
                         className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-110"
-                        referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />

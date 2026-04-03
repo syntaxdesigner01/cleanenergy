@@ -68,11 +68,11 @@ export const Footer = () => {
                 >
                   {/* Image Background with "Why CEF" Blue Overlay */}
                   <div className="absolute inset-0 z-0">
-                    <img 
+                    <Image 
                       src={cta.image} 
                       alt={cta.title} 
+                      fill
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-40 mix-blend-luminosity"
-                      referrerPolicy="no-referrer"
                     />
                     {/* The "Why CEF" Blue Overlay (rgb(0, 133, 202)) */}
                     <div className="absolute inset-0 bg-[rgb(0,133,202)]/40 mix-blend-multiply group-hover:bg-[rgb(0,133,202)]/60 transition-colors duration-500" />

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { 
   ArrowUpRight, ShieldCheck, Award, TrendingUp, 
@@ -73,10 +74,12 @@ const HeroSection = () => {
         >
           <source src="https://cdn.coverr.co/videos/coverr-solar-panels-in-a-field-5244/1080p.mp4" type="video/mp4" />
         </video>
-        <img 
+        <Image 
           src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2574&auto=format&fit=crop" 
           alt="Solar panels" 
-          className="hidden motion-reduce:block absolute inset-0 w-full h-full object-cover opacity-20" 
+          fill
+          priority
+          className="hidden motion-reduce:block object-cover opacity-20" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-[var(--color-background)]/80 to-transparent z-10" />
       </motion.div>
@@ -638,11 +641,11 @@ const TeamSection = () => {
               className="group cursor-pointer"
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-gray-100">
-                <img 
+                <Image 
                   src={member.img} 
                   alt={member.name} 
+                  fill
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <h3 className="font-bold text-lg text-[#0A1224]">{member.name}</h3>
